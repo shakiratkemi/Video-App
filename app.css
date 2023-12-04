@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  font-family: "Oxygen", sans-serif;
+  height: 100vh;
+}
+
+.side-nav {
+  border: 1px solid;
+  padding: 15px;
+  font-size: 10px;
+  background-color: rgb(68, 76, 99);
+  color: white;
+}
+
+.side-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.side-nav li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.main {
+  border: 1px solid rgb(212, 212, 228);
+  padding: 10px;
+}
+
+.search {
+  border: 1px solid rgb(172, 187, 193);
+  border-radius: 20px;
+  width: 200px;
+  padding: 5px;
+  color: rgb(172, 187, 193);
+  background-color: rgb(236, 241, 245);
+}
