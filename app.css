@@ -12,10 +12,11 @@
 
 .side-nav {
   border: 1px solid;
-  padding: 15px;
+  padding: 20px;
   font-size: 10px;
   background-color: rgb(68, 76, 99);
   color: white;
+  flex: 0 0 150px;
 }
 
 .side-nav ul {
@@ -35,7 +36,9 @@
 
 .main {
   border: 1px solid rgb(212, 212, 228);
-  padding: 10px;
+  padding: 15px 0px 0px 30px;
+  flex: 1;
+  width: auto;
 }
 
 .search {
@@ -45,4 +48,120 @@
   padding: 5px;
   color: rgb(172, 187, 193);
   background-color: rgb(236, 241, 245);
+}
+
+.main-movies,
+.main-movies-1 {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.movie-image img {
+  width: 170px;
+}
+
+.movie-text {
+  font-weight: bold;
+  font-size: 8px;
+}
+
+.movie-text p {
+  color: rgb(172, 187, 193);
+}
+
+.hidden-content {
+  background-color: #133e61;
+  padding: 20px;
+  color: lightgray;
+  display: none;
+}
+
+.hidden-image {
+  position: relative;
+}
+
+.hidden-word {
+  position: absolute;
+  bottom: 200px;
+  padding: 30px;
+  background-color: #133e61;
+}
+
+.hidden-image img {
+  width: 90%;
+}
+
+.hidden-first {
+  display: flex;
+  gap: 50px;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.hidden-first h4 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.hidden-first p {
+  line-height: 1.4;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  position: absolute;
+  bottom: 150px;
+  right: 70px;
+  gap: 5px;
+  background-color: #133e61;
+  padding: 10px;
+  font-size: 9px;
+}
+
+.ratings {
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(229, 27, 80);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  justify-content: center;
+}
+
+.colored {
+  color: rgb(229, 27, 80);
+}
+
+.ratings-num {
+  font-size: 40px;
+}
+
+.non-ratings {
+  color: lightgray;
+}
+
+.synopsis {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: #133e61;
+  padding: 10px;
+}
+
+.synopsis p {
+  color: lightgray;
+  font-style: italic;
+  font-size: 9px;
+  line-height: 1.5;
 }
