@@ -199,7 +199,16 @@
     top: 5px;
   }
 
+  .main-movies .movie-container:first-child,
+  .main-movies .movie-container:nth-child(2) {
+    padding-top: 30px;
+  }
+
   .main-movies {
     gap: 70px;
+  }
+
+  .movie-image img {
+    width: 200px;
   }
 }

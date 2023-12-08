@@ -1,5 +1,3 @@
-const all = document.getElementsByClassName("all");
-const action = document.querySelector(".action");
 const shows = document.querySelector(".shows");
 const likes = document.querySelector(".likes");
 
@@ -7,6 +5,8 @@ function Movie(image, title, category) {
   this.image = image;
   this.title = title;
   this.category = category;
+  this.categoryType = categorytype;
+  this.likes = likes;
 }
 
 const movies = [
@@ -22,23 +22,21 @@ const movies = [
   new Movie("./images/django.jpeg", "Django", "Action"),
 ];
 
-const newMovieContainers = document.querySelectorAll(".main-movies");
+const newMovieContainer = document.querySelector(".main-movies");
 
 function displayMovies(movieList) {
-  newMovieContainers.forEach((container) => {
-    container.innerHTML = "";
-    movieList.forEach((movie) => {
-      const newDiv = document.createElement("div");
-      newDiv.classList.add("movie-container");
-      newDiv.innerHTML = `<div class="movie-image">
-        <img src="${movie.image}" alt="${movie.title}" />
-      </div>
-      <div class="movie-text">
-        <div class="title">${movie.title}</div>
-        <p class="category">${movie.category}</p>
-      </div>`;
-      container.appendChild(newDiv);
-    });
+  newMovieContainer.innerHTML = "";
+  movieList.forEach((movie) => {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("movie-container");
+    newDiv.innerHTML = `<div class="movie-image">
+      <img src="${movie.image}" alt="${movie.title}" />
+    </div>
+    <div class="movie-text">
+      <div class="title">${movie.title}</div>
+      <p class="category">${movie.category}</p>
+    </div>`;
+    newMovieContainer.appendChild(newDiv);
   });
 }
 
@@ -66,14 +64,8 @@ function filterMoviesByCategory(category) {
   displayMovies(filteredMovies);
 }
 
-all.addEventListener("click", function () {
-  displayMovies(movies);
-});
+const all = document.querySelector(".all");
+all.addEventListener("click", displayMovies(movies));
 
-action.addEventListener("click", function () {
-  filterMoviesByCategory("Action");
-});
-
-shows.addEventListener("click", function () {
-  filterMoviesByCategory("Shows");
-});
+const action = document.querySelector(".action");
+action.addEventListener("click", filterMoviesByCategory);
