@@ -10,16 +10,46 @@ function Movie(image, title, category) {
 }
 
 const movies = [
-  new Movie("./images/oblivion.jpg", "Oblivion", "Science Fiction"),
-  new Movie("./images/ribelle.jpg", "Ribelle", "Science Fiction"),
-  new Movie("./images/wolverine.jpg", "Wolverine", "Action"),
-  new Movie("./images/dexter.jpg", "Dexter", "Action"),
-  new Movie("./images/incredibles.jpg", "The Incredibles", "Shows"),
-  new Movie("./images/man of steel.jpg", "Man of Steel", "Science Fiction"),
-  new Movie("./images/gatsby.jpeg", "Gatsby", "Shows"),
-  new Movie("./images/drive.jpg", "Drive", "Action"),
-  new Movie("./images/ironman3.jpeg", "Iron Man 3", "Science Fiction"),
-  new Movie("./images/django.jpeg", "Django", "Action"),
+  new Movie(
+    "./images/oblivion.jpg",
+    "Oblivion",
+    "Science Fiction",
+    "Action",
+    0
+  ),
+  new Movie("./images/ribelle.jpg", "Ribelle", "Science Fiction", "Shows", 0),
+  new Movie(
+    "./images/wolverine.jpg",
+    "Wolverine",
+    "Science Fiction",
+    "Action",
+    0
+  ),
+  new Movie("./images/dexter.jpg", "Dexter", "Science Fiction", "Action", 0),
+  new Movie(
+    "./images/incredibles.jpg",
+    "The Incredibles",
+    "Science Fiction",
+    "Shows",
+    0
+  ),
+  new Movie(
+    "./images/man of steel.jpg",
+    "Man of Steel",
+    "Science Fiction",
+    "Action",
+    0
+  ),
+  new Movie("./images/gatsby.jpeg", "Gatsby", "Science Fiction", "Shows", 0),
+  new Movie("./images/drive.jpg", "Drive", "Science Fiction", "Action", 0),
+  new Movie(
+    "./images/ironman3.jpeg",
+    "Iron Man 3",
+    "Science Fiction",
+    "Action",
+    0
+  ),
+  new Movie("./images/django.jpeg", "Django", "Science Fiction", "Action", 0),
 ];
 
 const newMovieContainer = document.querySelector(".main-movies");
@@ -64,8 +94,24 @@ function filterMoviesByCategory(category) {
   displayMovies(filteredMovies);
 }
 
+// function addLike(movie) {
+//   movie.likes++;
+// }
+
+// const likeButtons = document.querySelectorAll(".like-button");
+// likeButtons.forEach((button, index) => {
+//   button.addEventListener("click", () => {
+//     addLike(movies[index]);
+//     displayMovies(movies);
+//   });
+// });
+
 const all = document.querySelector(".all");
-all.addEventListener("click", displayMovies(movies));
+all.addEventListener("click", () => {
+  filterMoviesByCategory("all");
+});
 
 const action = document.querySelector(".action");
-action.addEventListener("click", filterMoviesByCategory);
+action.addEventListener("click", () => {
+  filterMoviesByCategory("Action");
+});

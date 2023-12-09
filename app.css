@@ -82,6 +82,10 @@
   color: rgb(172, 187, 193);
 }
 
+.like-button {
+  color: red;
+}
+
 .hidden-content {
   background-color: #133e61;
   padding: 20px;
