@@ -76,14 +76,21 @@
 .movie-text {
   font-weight: bold;
   font-size: 8px;
+  display: flex;
+  gap: 130px;
+  padding: 5px;
 }
 
 .movie-text p {
   color: rgb(172, 187, 193);
 }
 
-.like-button {
-  color: red;
+.fa-heart {
+  /* color: #333; */
+}
+
+.fa-heart.liked {
+  color: #ff0000;
 }
 
 .hidden-content {
