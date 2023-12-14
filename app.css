@@ -70,7 +70,7 @@
 }
 
 .movie-image img {
-  width: 170px;
+  width: 200px;
 }
 
 .movie-text {
@@ -85,12 +85,8 @@
   color: rgb(172, 187, 193);
 }
 
-.fa-heart {
-  /* color: #333; */
-}
-
-.fa-heart.liked {
-  color: #ff0000;
+.like-button.liked {
+  color: red;
 }
 
 .hidden-content {

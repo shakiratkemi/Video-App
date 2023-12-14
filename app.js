@@ -1,4 +1,3 @@
-const likes = document.querySelector(".likes");
 function Movie(image, title, category) {
   this.image = image;
   this.title = title;
@@ -25,7 +24,6 @@ function displayMovies(movieList) {
   newMovieContainer.innerHTML = "";
   movieList.forEach((movie) => {
     const likeClass = movie.likes > 0 ? "liked" : "";
-
     const newDiv = document.createElement("div");
     newDiv.classList.add("movie-container");
     newDiv.innerHTML = `<div class="movie-image">
@@ -35,12 +33,19 @@ function displayMovies(movieList) {
     <div>
       <div class="title">${movie.title}</div>
       <p class="category">${movie.category}</p></div>
-     <button class="like-button"><i class="fa-regular fa-heart ${likeClass}"></i></button>
+      <button class="like-button ${likeClass}" data-index="${movie.title}">
+ <i class="fas fa-heart"></i> 
+</button>
     </div>`;
+    newDiv.querySelector(".movie-image").addEventListener("click", () => {
+      displayMovieDetails(movie);
+    });
+    newDiv.querySelector(".like-button").addEventListener("click", () => {
+      toggleLike(movie);
+    });
     newMovieContainer.appendChild(newDiv);
   });
 }
-
 displayMovies(movies);
 
 function searchMovies() {
@@ -50,7 +55,6 @@ function searchMovies() {
   );
   displayMovies(updatedMovies);
 }
-
 const searchInput = document.querySelector(".search input");
 searchInput.addEventListener("input", searchMovies);
 searchInput.addEventListener("keydown", function (event) {
@@ -68,18 +72,18 @@ function filterMoviesByCategory(category) {
   displayMovies(filteredMovies);
 }
 
-const likeButtons = document.querySelectorAll(".like-button");
-likeButtons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    toggleLike(movies[index]);
-    displayMovies(movies);
-  });
-});
-
 function toggleLike(movie) {
-  movie.likes = 1 - movie.likes;
+  movie.likes += movie.likes === 0 ? 1 : -1;
+  displayMovies(movies);
 }
-displayMovies(movies);
+
+function displayLikedMovies() {
+  const likedMovies = movies.filter((movie) => movie.likes > 0);
+  displayMovies(likedMovies);
+}
+
+const likedMoviesButton = document.querySelector(".likes");
+likedMoviesButton.addEventListener("click", displayLikedMovies);
 
 const all = document.querySelector(".all");
 all.addEventListener("click", () => {
